@@ -9,9 +9,12 @@
     NSString* message = [command.arguments objectAtIndex:0];
 
     if (message != nil && [message length] > 0) {
-        pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:message];
+        NSString *answer = @"Plugin received ";
+        answer = [answer stringByAppendingString:message];
+        pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:answer];
     } else {
-        pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR];
+        NSString *answer = @"Plugin did not receive parameter.";
+        pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR  messageAsString:answer];
     }
 
     [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
