@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    id="panda-cordova-plugin-echo"
+    version="1.0.0">
+
+    <name>Echo</name>
+    <description>Panda 2 Cordova Echo Plugin</description>
+    <license>MIT</license>
+    <keywords>panda2io,cordova,echo</keywords>
+    <repo>https://github.com/ekelokorpi/panda-cordova-plugin-echo.git</repo>
+
+    <js-module src="www/echo.js" name="echo">
+        <clobbers target="game.echo" />
+    </js-module>
+
+    <platform name="android">
+        <config-file target="config.xml" parent="/*">
+            <feature name="Echo" >
+                <param name="android-package" value="io.panda2.cordova.Device"/>
+            </feature>
+        </config-file>
+
+        <source-file src="src/android/Echo.java" target-dir="src/io/panda2/cordova" />
+    </platform>
+
+    <platform name="ios">
+        <config-file target="config.xml" parent="/*">
+            <feature name="Echo">
+                <param name="ios-package" value="CDVEcho"/>
+            </feature>
+        </config-file>
+
+        <header-file src="src/ios/CDVEcho.h" />
+        <source-file src="src/ios/CDVEcho.m" />
+    </platform>
+</plugin>
