@@ -17,7 +17,7 @@
     <platform name="android">
         <config-file target="config.xml" parent="/*">
             <feature name="Echo" >
-                <param name="android-package" value="io.panda2.cordova.Device"/>
+                <param name="android-package" value="io.panda2.cordova.Echo"/>
             </feature>
         </config-file>
 
