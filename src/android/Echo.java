@@ -11,13 +11,13 @@ public class Echo extends CordovaPlugin {
     public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
         if (action.equals("run")) {
             String message = args.getString(0);
-            this.echo(message, callbackContext);
+            this.run(message, callbackContext);
             return true;
         }
         return false;
     }
 
-    private void echo(String message, CallbackContext callbackContext) {
+    private void run(String message, CallbackContext callbackContext) {
         if (message != null && message.length() > 0) {
             callbackContext.success("Plugin received " + message);
         } else {
